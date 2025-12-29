@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+.animate-slide-in { animation: slideIn 0.3s ease-out forwards; }
+
+/* Custom Classes */
+.card {
+  @apply bg-dark-700 rounded-xl border border-dark-500 p-5;
+}
+
+/* Color picker styling */
+input[type="color"] {
+  -webkit-appearance: none;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 8px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+.card-hover {
+  @apply transition-all duration-200 hover:border-dark-500 hover:bg-dark-600;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium transition-all duration-200 text-sm;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-primary-hover text-white;
+}
+
+.btn-outline {
+  @apply bg-transparent border border-dark-500 text-white hover:bg-dark-600;
+}
+
+.input {
+  @apply w-full px-4 py-2.5 bg-dark-700 border border-dark-500 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-primary transition-colors;
+}
+
+.section-title {
+  @apply text-3xl sm:text-4xl font-bold text-center;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-primary to-orange-400 bg-clip-text text-transparent;
+}
+
+/* Mobile-first responsive utilities */
+@layer utilities {
+  .container-custom {
+    @apply w-full max-w-6xl mx-auto px-4 sm:px-6;
+  }
+}
